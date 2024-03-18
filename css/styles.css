@@ -1,0 +1,68 @@
+body {
+	font-family: Arial, sans-serif;
+	padding: 0;
+	background-color: #f0f0f0;
+}
+.text-center{
+	display: flex;
+	justify-content: center;
+}
+
+.container {
+	width: 40%;
+	margin: 0 auto;
+	margin-top: 40px;
+	padding: 20px;
+	background-color: #fff;
+	box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+	border-radius: 4px;
+}
+.form-group{
+	display: flex;
+	flex-direction: column;
+	width: 95%;
+	margin: auto;
+}
+
+.form-control{
+	height: 30px;
+	margin-top: 5px;
+	margin-bottom: 22px;
+	border: solid 1px #d1cece;
+	border-radius: 5px;
+}
+
+.selectForm{
+	width: 250px;
+}
+#disposicaoEntidadePrivada{
+	width: 50px;
+}
+.submitButton{
+  background-color: #2e61cf; /* Green */
+  border: none;
+  color: white;
+	width: 140px;
+	padding: 8px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  cursor: pointer;
+	border-radius: 5px;
+	transition: 0.2s;
+	/* margin-left: auto; */
+}
+.submitButton:hover{
+	background-color: #063fb9;
+}
+
+#jsonFile{
+	margin-bottom: 15px;
+}
+
+@media screen and (max-width: 1260px){
+	.container {
+		width: 75%;
+	}
+}

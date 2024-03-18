@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GEINF Gerador</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+	<script src="js/script.js" defer></script>
+	<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<div class="container">
+  <h3 class="text-center">Gerar arquivo Responsavel Contrato</h3>
+
+  <form id="generatorForm">
+    <div class="form-group">
+			<!-- <input type="file" id="jsonFile" accept=".json"><br> -->
+
+      <label for="codUnidadeOrcamentaria ">Codigo da Unidade Orçamentaria</label>
+      <input type="text" id="codUnidadeOrcamentaria" class="form-control" maxlength="6"><br>
+			
+      <label for="numContrato">Identificador Unico do Contrato</label>
+      <input type="text" id="numContrato" class="form-control" maxlength="16"><br>
+			
+			<label for="tpContrato">Tipo de Contrato</label>
+			<select id="tpContrato" class="form-control selectForm">
+        <option value="1"> Termo de Contrato</option>
+        <option value="2"> Termo Aditivo ao Contrato</option>
+      </select><br>
+
+      <label for="cpf">CPF do Responsavel do Contrato:</label>
+      <input type="text" id="cpf" class="form-control cpf-mask"><br>
+
+      <label for="matricula">Matricula do Responsável pelo Contrato:</label>
+      <input type="text" id="matricula" class="form-control" maxlength="15"><br>
+      
+			<label for="nome">Nome Completo do Responsável</label>
+			<input type="text" id="nome" class="form-control" maxlength="120"></br>
+
+			<label for="tpResponsavel">Tipo de Responsavel</label>
+			<select id="tpResponsavel" class="form-control selectForm">
+        <option value="FI">FI - Fiscal</option>
+        <option value="GE">GE - Gestor</option>
+      </select><br>
+      
+      <input type="submit" class="submitButton" value="Gerar arquivo Json">
+    </div>
+  </form>
+</div>
+
+
+
+</body>
+</html>
+
