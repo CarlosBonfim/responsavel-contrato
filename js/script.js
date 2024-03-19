@@ -5,24 +5,16 @@ $(document).ready(function(){
 document.getElementById("generatorForm").addEventListener("submit", function(event){
   event.preventDefault()
 
-  // let tpAto = document.getElementById('tpAto').value;
-  // if (tpAto.trim() === '') {
-  //   tpAto = '00000';
-  // }
-
   let data = {
     codUnidadeOrcamentaria: document.getElementById('codUnidadeOrcamentaria').value,
 		numContrato: document.getElementById('numContrato').value,
 		tpContrato: document.getElementById('tpContrato').value,
-    // tpContrato: tpContrato,
     cpf: document.getElementById('cpf').value.replace(/\D/g,''),
     matricula: document.getElementById('matricula').value,
     nome: document.getElementById('nome').value,
-    tpResponsavel: tpResponsavel,
+    tpResponsavel: document.getElementById('tpResponsavel').value
   }
-
 	const dataLikeAnArray = [data]
-	
 
   let dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(dataLikeAnArray));
   let downloadAnchorNode = document.createElement('a');
@@ -32,38 +24,27 @@ document.getElementById("generatorForm").addEventListener("submit", function(eve
   downloadAnchorNode.click();
   downloadAnchorNode.remove();
 })
+//Funcao que ira ler os arquivos no formato json e inserir nos campos
+function loadJsonFile(event) {
+  let file = event.target.files[0];
+  if (file) {
+    let reader = new FileReader();
+    reader.onload = function(e) {
+      let contents = e.target.result;
+      let json = JSON.parse(contents);
 
-
-// function loadJsonFile(event) {
-//   let file = event.target.files[0];
-//   if (file) {
-//     let reader = new FileReader();
-//     reader.onload = function(e) {
-//       let contents = e.target.result;
-//       let json = JSON.parse(contents);
-
-//       if (Object.keys(json).length === 1) {
-//         json = json[Object.keys(json)[0]];
-//       }
-
-//       // Preencha os campos do formulário com os dados do arquivo JSON
-//       document.getElementById('cpf').value = json.cpf;
-//       document.getElementById('matricula').value = json.matricula;
-
-//       document.getElementById('tpAto').value = json.tpAto;
-//       document.getElementById('numero').value = json.numero;
-//       document.getElementById('dtAto').value = json.dtAto;
-//       document.getElementById('onus').value = json.onus;
-//       document.getElementById('disposicaoEntidadePrivada').value = json.disposicaoEntidadePrivada;
-//       document.getElementById('cnpjCedenteCessionario').value = json.cnpjCedenteCessionario;
-
-//       // Aplique as máscaras novamente
-//       $('.cpf-mask').mask('000.000.000-00').trigger('input');
-//     };
-//     reader.readAsText(file);
-//   }
-// }
+      if (Object.keys(json).length === 1) {
+        json = json[Object.keys(json)[0]];
+      }
+      // Preencha os campos do formulário com os dados do arquivo JSON
+      document.getElementById('codUnidadeOrcamentaria').value = json.codUnidadeOrcamentaria;
+      document.getElementById('numContrato').value = json.numContrato;
+      document.getElementById('tpContrato').value = json.tpContrato;
+    };
+    reader.readAsText(file);
+  }
+}
 
 
 
-// document.getElementById('jsonFile').addEventListener('change', loadJsonFile);
+document.getElementById('jsonFile').addEventListener('change', loadJsonFile);
