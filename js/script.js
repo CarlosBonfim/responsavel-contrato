@@ -1,5 +1,6 @@
 $(document).ready(function(){
   $('.cpf-mask').mask('000.000.000-00');
+	$('.cnpj-mask').mask('00.000.000/0000-00');
 });
 
 document.getElementById("generatorForm").addEventListener("submit", function(event){
@@ -12,7 +13,9 @@ document.getElementById("generatorForm").addEventListener("submit", function(eve
     cpf: document.getElementById('cpf').value.replace(/\D/g,''),
     matricula: document.getElementById('matricula').value,
     nome: document.getElementById('nome').value,
-    tpResponsavel: document.getElementById('tpResponsavel').value
+    tpResponsavel: document.getElementById('tpResponsavel').value,
+		cnpjContratoOriginal: document.getElementById('cnpjContratoOriginal').value.replace(/\D/g,''),
+		// cnpjContratoOriginal: cnpjContratoOriginal.replace(/\D/g,'')
   }
 	const dataLikeAnArray = [data]
 

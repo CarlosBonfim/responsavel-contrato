@@ -83,10 +83,13 @@
 
 			<label for="tpResponsavel">Tipo de Responsavel</label>
 			<select id="tpResponsavel" class="form-control selectForm">
-        <option value="FI">FI - Fiscal</option>
         <option value="GE">GE - Gestor</option>
+        <option value="FI">FI - Fiscal</option>
       </select><br>
       
+      <label for="cnpjContratoOriginal">CNPJ da UG do contrato original:</label>
+      <input type="text" id="cnpjContratoOriginal" class="form-control cnpj-mask"><br>
+
       <input type="submit" class="submitButton" value="Gerar arquivo Json">
     </div>
   </form>
